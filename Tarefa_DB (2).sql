@@ -31,7 +31,7 @@ INSERT INTO Cds (Nome_cd, DataCompra, ValorPago, LocalCompra, Album) VALUES
 ('Loucuras do José Pedro', '2023-04-05', 29.90, 'Lojas Brasileiras', 'Não'),
 ('The Sound of The Smiths', '2023-05-12', 69.90, 'Amazon', 'Sim');
 
--- Inserir músicas para o CD 1 (The Queen Is Dead)
+-- Inserir músicas para o CD 1
 INSERT INTO Musicas VALUES
 (1, 1, 'The Queen Is Dead', 'The Smiths', '0:6:24'),
 (1, 2, 'Frankly, Mr. Shankly', 'The Smiths', '0:2:18'),
@@ -39,7 +39,7 @@ INSERT INTO Musicas VALUES
 (1, 4, 'Never Had No One Ever', 'The Smiths', '0:3:36'),
 (1, 5, 'Cemetry Gates', 'The Smiths', '0:2:39');
 
--- Inserir músicas para o CD 2 (Meat Is Murder)
+-- Inserir músicas para o CD 2
 INSERT INTO Musicas VALUES
 (2, 1, 'The Headmaster Ritual', 'The Smiths', '0:4:52'),
 (2, 2, 'Rusholme Ruffians', 'The Smiths', '0:4:20'),
@@ -47,7 +47,7 @@ INSERT INTO Musicas VALUES
 (2, 4, 'What She Said', 'The Smiths', '0:2:42'),
 (2, 5, 'That Joke Isn''t Funny Anymore', 'The Smiths', '0:4:59');
 
--- Inserir músicas para o CD 3 (Strangeways, Here We Come)
+-- Inserir músicas para o CD 3
 INSERT INTO Musicas VALUES
 (3, 1, 'A Rush and a Push and the Land Is Ours', 'The Smiths', '0:3:00'),
 (3, 2, 'I Started Something I Couldn''t Finish', 'The Smiths', '0:3:47'),
@@ -55,64 +55,61 @@ INSERT INTO Musicas VALUES
 (3, 4, 'Girlfriend in a Coma', 'The Smiths', '0:2:03'),
 (3, 5, 'Stop Me If You Think You''ve Heard This One Before', 'The Smiths', '0:3:34');
 
--- Inserir músicas para o CD 4 (Loucuras do José Pedro)
+-- Inserir músicas para o CD 4
 INSERT INTO Musicas VALUES
 (4, 1, 'Saudades do Interior', 'José Pedro', '0:3:45'),
 (4, 2, 'Cavalo Manco', 'José Pedro', '0:4:12'),
 (4, 3, 'Festa na Roça', 'José Pedro', '0:2:58');
 
--- Inserir músicas para o CD 5 (The Sound of The Smiths)
+-- Inserir músicas para o CD 5
 INSERT INTO Musicas VALUES
 (5, 1, 'How Soon Is Now?', 'The Smiths', '0:6:46'),
 (5, 2, 'This Charming Man', 'The Smiths', '0:2:42'),
 (5, 3, 'There Is a Light That Never Goes Out', 'The Smiths', '0:4:04');
 
 
--- 1. Mostrar todos os cds
+-- 1. 
 SELECT * FROM Cds;
 
--- 2. Mostrar os campos nome e data da compra dos cds ordenados por nome
+-- 2. 
 SELECT Nome_cd, DataCompra FROM Cds ORDER BY Nome_cd;
 
--- 3. Mostrar os campos nome e data da compra dos cds classificados por data de compra em ordem decrescente
+-- 3. 
 SELECT Nome_cd, DataCompra FROM Cds ORDER BY DataCompra DESC;
 
--- 4. Mostrar os campos nome, data da compra e preço dos cds classificados por preço em ordem decrescente
+-- 4. 
 SELECT Nome_cd, DataCompra, ValorPago FROM Cds ORDER BY ValorPago DESC;
 
--- 5. Mostrar o total gasto com a compra dos Cds
+-- 5. 
 SELECT SUM(ValorPago) AS TotalGasto FROM Cds;
 
--- 6. Mostrar todas as músicas (todos os campos) do cds código 1
+-- 6. 
 SELECT * FROM Musicas WHERE CodigoCD = 1;
 
--- 7. Mostre o nome da música e o artista de todas músicas cadastradas
+-- 7. 
 SELECT Nome_musica, Artista FROM Musicas;
 
--- 8. Mostre o número, nome e tempo das músicas do cd 5 em ordem de número
+-- 8. 
 SELECT Numero_musica, Nome_musica, Tempo 
 FROM Musicas 
 WHERE CodigoCD = 5 
 ORDER BY Numero_musica;
 
--- 9. Mostre a quantidade de músicas cadastradas (total)
+-- 9. 
 SELECT COUNT(*) AS TotalMusicas FROM Musicas;
 
--- 10. Mostre o nome das músicas do artista José Pedro
+-- 10.
 SELECT Nome_musica FROM Musicas WHERE Artista = 'José Pedro';
 
--- 11. Mostre o nome de todos cds comprados no Submarino
+-- 11.
 SELECT Nome_cd FROM Cds WHERE LocalCompra = 'Submarino';
 
--- 12. Mostre uma listagem de músicas em ordem alfabética
+-- 12.
 SELECT * FROM Musicas ORDER BY Nome_musica;
 
--- 13. Mostrar todos os cds que são álbuns
+-- 13.
 SELECT * FROM Cds WHERE Album = 'Sim';
 
--- 14. Mostrar a média de preços dos cds
+-- 14.
 SELECT AVG(ValorPago) AS MediaPrecos FROM Cds;
-
-
-
 
